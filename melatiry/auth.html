@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register / Login - Egyptian Military Recruitment</title>
+    <title>التسجيل / تسجيل الدخول - التجنيد العسكري المصري</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -11,13 +11,13 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <h1>🇪🇬 Military Recruitment</h1>
+                <h1>🇪🇬 التجنيد العسكري</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="auth.html" class="active">Register / Login</a></li>
-                <li><a href="requests.html" id="requestsLink" style="display:none;">My Requests</a></li>
-                <li><a href="#" id="logoutBtn" style="display:none;" onclick="logoutUser(event)">Logout</a></li>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="auth.html" class="active">التسجيل / تسجيل الدخول</a></li>
+                <li><a href="requests.html" id="requestsLink" style="display:none;">طلباتي</a></li>
+                <li><a href="#" id="logoutBtn" style="display:none;" onclick="logoutUser(event)">تسجيل الخروج</a></li>
             </ul>
         </div>
     </nav>
@@ -27,84 +27,84 @@
         <div class="auth-card">
             <!-- Tabs -->
             <div class="tabs">
-                <button class="tab-button active" onclick="switchTab('register', event)">Register</button>
-                <button class="tab-button" onclick="switchTab('login', event)">Login</button>
+                <button class="tab-button active" onclick="switchTab('register', event)">التسجيل</button>
+                <button class="tab-button" onclick="switchTab('login', event)">تسجيل الدخول</button>
             </div>
 
             <!-- Registration Form -->
             <div id="register-tab" class="tab-content active">
-                <h2>Create Your Account</h2>
+                <h2>إنشاء حسابك</h2>
                 <form id="registerForm" onsubmit="registerUser(event)">
                     <div class="form-group">
-                        <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        <label for="fullName">الاسم الكامل *</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="أدخل اسمك الكامل">
                         <span class="error" id="fullNameError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="nationalId">National ID (14 digits) *</label>
-                        <input type="text" id="nationalId" name="nationalId" required placeholder="e.g., 30001011234567">
+                        <label for="nationalId">رقم البطاقة الوطنية (14 رقم) *</label>
+                        <input type="text" id="nationalId" name="nationalId" required placeholder="مثال: 30001011234567">
                         <span class="error" id="nationalIdError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="dob">Date of Birth *</label>
+                        <label for="dob">تاريخ الميلاد *</label>
                         <input type="date" id="dob" name="dob" required>
                         <span class="error" id="dobError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="address">Address *</label>
-                        <input type="text" id="address" name="address" required placeholder="Enter your address">
+                        <label for="address">العنوان *</label>
+                        <input type="text" id="address" name="address" required placeholder="أدخل عنوانك">
                         <span class="error" id="addressError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="e.g., +20 123 456 7890">
+                        <label for="phone">رقم الهاتف *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="مثال: +20 123 456 7890">
                         <span class="error" id="phoneError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email">البريد الإلكتروني *</label>
                         <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                         <span class="error" id="emailError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password (min 8 characters) *</label>
-                        <input type="password" id="password" name="password" required placeholder="Enter a strong password">
+                        <label for="password">كلمة المرور (8 أحرف على الأقل) *</label>
+                        <input type="password" id="password" name="password" required placeholder="أدخل كلمة مرور قوية">
                         <span class="error" id="passwordError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="confirmPassword">Confirm Password *</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                        <label for="confirmPassword">تأكيد كلمة المرور *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="أكد كلمة المرور">
                         <span class="error" id="confirmPasswordError"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">التسجيل</button>
                     <div class="message" id="registerMessage"></div>
                 </form>
             </div>
 
             <!-- Login Form -->
             <div id="login-tab" class="tab-content">
-                <h2>Login to Your Account</h2>
+                <h2>تسجيل الدخول إلى حسابك</h2>
                 <form id="loginForm" onsubmit="loginUser(event)">
                     <div class="form-group">
-                        <label for="loginNationalId">National ID (14 digits) *</label>
-                        <input type="text" id="loginNationalId" name="nationalId" required placeholder="e.g., 30001011234567">
+                        <label for="loginNationalId">رقم البطاقة الوطنية (14 رقم) *</label>
+                        <input type="text" id="loginNationalId" name="nationalId" required placeholder="مثال: 30001011234567">
                         <span class="error" id="loginNationalIdError"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="loginPassword">Password *</label>
-                        <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                        <label for="loginPassword">كلمة المرور *</label>
+                        <input type="password" id="loginPassword" name="password" required placeholder="أدخل كلمة المرور">
                         <span class="error" id="loginPasswordError"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">تسجيل الدخول</button>
                     <div class="message" id="loginMessage"></div>
                 </form>
             </div>
@@ -115,20 +115,20 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h5>Contact Us</h5>
-                <p>Email: recruitment@military.gov.eg</p>
-                <p>Phone: +20 (0) 2 XXXX XXXX</p>
+                <h5>اتصل بنا</h5>
+                <p>البريد الإلكتروني: recruitment@military.gov.eg</p>
+                <p>الهاتف: +20 (0) 2 XXXX XXXX</p>
             </div>
             <div class="footer-section">
-                <h5>Quick Links</h5>
+                <h5>روابط سريعة</h5>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="auth.html">Register</a></li>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="auth.html">التسجيل</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Egyptian Military Recruitment System. All rights reserved.</p>
+            <p>&copy; 2025 نظام التجنيد العسكري المصري. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 

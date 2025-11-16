@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Requests - Egyptian Military Recruitment</title>
+    <title>طلباتي - التجنيد العسكري المصري</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -11,62 +11,62 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <h1>🇪🇬 Military Recruitment</h1>
+                <h1>🇪🇬 التجنيد العسكري</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="auth.html">Register / Login</a></li>
-                <li><a href="requests.html" class="active">My Requests</a></li>
-                <li><a href="#" onclick="logoutUser(event)">Logout</a></li>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="auth.html">التسجيل / تسجيل الدخول</a></li>
+                <li><a href="requests.html" class="active">طلباتي</a></li>
+                <li><a href="#" onclick="logoutUser(event)">تسجيل الخروج</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="container requests-container">
-        <h2>My Recruitment Requests</h2>
+        <h2>طلبات التجنيد الخاصة بي</h2>
 
         <!-- Submit New Request Section -->
         <section class="submit-request-section">
-            <h3>Submit New Request</h3>
+            <h3>تقديم طلب جديد</h3>
             <form id="requestForm" onsubmit="submitRequest(event)">
                 <div class="form-group">
-                    <label for="requestType">Request Type *</label>
+                    <label for="requestType">نوع الطلب *</label>
                     <select id="requestType" name="requestType" required>
-                        <option value="">-- Select Request Type --</option>
-                        <option value="Officer Application">Officer Application</option>
-                        <option value="Enlisted Service">Enlisted Service</option>
-                        <option value="Technical Role">Technical Role</option>
-                        <option value="Medical Unit">Medical Unit</option>
-                        <option value="Administrative">Administrative</option>
-                        <option value="Other">Other</option>
+                        <option value="">-- اختر نوع الطلب --</option>
+                        <option value="طلب ضابط">طلب ضابط</option>
+                        <option value="خدمة مجند">خدمة مجند</option>
+                        <option value="دور فني">دور فني</option>
+                        <option value="الوحدة الطبية">الوحدة الطبية</option>
+                        <option value="إداري">إداري</option>
+                        <option value="أخرى">أخرى</option>
                     </select>
                     <span class="error" id="requestTypeError"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message / Notes</label>
-                    <textarea id="message" name="message" placeholder="Any additional information or questions..." rows="4"></textarea>
+                    <label for="message">الرسالة / الملاحظات</label>
+                    <textarea id="message" name="message" placeholder="أي معلومات إضافية أو أسئلة..." rows="4"></textarea>
                     <span class="error" id="messageError"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="fileUpload">Attach File (simulated) *</label>
+                    <label for="fileUpload">إرفاق ملف (محاكاة) *</label>
                     <input type="file" id="fileUpload" name="fileUpload" required>
-                    <small>Note: File upload is simulated for this demo</small>
+                    <small>ملاحظة: رفع الملف محاكاة لهذا العرض التوضيحي</small>
                     <span class="error" id="fileError"></span>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit Request</button>
+                <button type="submit" class="btn btn-primary">تقديم الطلب</button>
                 <div class="message" id="submitMessage"></div>
             </form>
         </section>
 
         <!-- User Requests Display Section -->
         <section class="requests-display-section">
-            <h3>Your Requests</h3>
+            <h3>طلباتك</h3>
             <div id="requestsContainer" class="requests-container-inner">
-                <p class="no-requests">No requests submitted yet. Submit your first request above!</p>
+                <p class="no-requests">لم يتم تقديم أي طلبات بعد. قدم طلبك الأول أعلاه!</p>
             </div>
         </section>
     </main>
@@ -75,20 +75,20 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h5>Contact Us</h5>
-                <p>Email: recruitment@military.gov.eg</p>
-                <p>Phone: +20 (0) 2 XXXX XXXX</p>
+                <h5>اتصل بنا</h5>
+                <p>البريد الإلكتروني: recruitment@military.gov.eg</p>
+                <p>الهاتف: +20 (0) 2 XXXX XXXX</p>
             </div>
             <div class="footer-section">
-                <h5>Quick Links</h5>
+                <h5>روابط سريعة</h5>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="auth.html">Register</a></li>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="auth.html">التسجيل</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Egyptian Military Recruitment System. All rights reserved.</p>
+            <p>&copy; 2025 نظام التجنيد العسكري المصري. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 

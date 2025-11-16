@@ -110,42 +110,42 @@ function registerUser(event) {
 
     // Validation
     if (!fullName) {
-        document.getElementById('fullNameError').textContent = 'Full name is required';
+        document.getElementById('fullNameError').textContent = 'الاسم الكامل مطلوب';
         isValid = false;
     }
 
     if (!validateNationalId(nationalId)) {
-        document.getElementById('nationalIdError').textContent = 'National ID must be exactly 14 digits';
+        document.getElementById('nationalIdError').textContent = 'يجب أن يكون رقم البطاقة الوطنية 14 رقماً بالضبط';
         isValid = false;
     }
 
     if (!dob) {
-        document.getElementById('dobError').textContent = 'Date of birth is required';
+        document.getElementById('dobError').textContent = 'تاريخ الميلاد مطلوب';
         isValid = false;
     }
 
     if (!address) {
-        document.getElementById('addressError').textContent = 'Address is required';
+        document.getElementById('addressError').textContent = 'العنوان مطلوب';
         isValid = false;
     }
 
     if (!phone) {
-        document.getElementById('phoneError').textContent = 'Phone number is required';
+        document.getElementById('phoneError').textContent = 'رقم الهاتف مطلوب';
         isValid = false;
     }
 
     if (!validateEmail(email)) {
-        document.getElementById('emailError').textContent = 'Please enter a valid email address';
+        document.getElementById('emailError').textContent = 'يرجى إدخال عنوان بريد إلكتروني صحيح';
         isValid = false;
     }
 
     if (password.length < 8) {
-        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
+        document.getElementById('passwordError').textContent = 'يجب أن تكون كلمة المرور 8 أحرف على الأقل';
         isValid = false;
     }
 
     if (password !== confirmPassword) {
-        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+        document.getElementById('confirmPasswordError').textContent = 'كلمات المرور غير متطابقة';
         isValid = false;
     }
 
@@ -156,7 +156,7 @@ function registerUser(event) {
     // Check if user already exists
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     if (users.some(u => u.nationalId === nationalId)) {
-        document.getElementById('registerMessage').textContent = 'A user with this National ID already exists';
+        document.getElementById('registerMessage').textContent = 'يوجد مستخدم بهذا الرقم القومي بالفعل';
         document.getElementById('registerMessage').className = 'message error';
         return;
     }
@@ -180,7 +180,7 @@ function registerUser(event) {
 
     // Show success message
     const messageDiv = document.getElementById('registerMessage');
-    messageDiv.textContent = 'Registration successful! You can now log in with your National ID and password.';
+    messageDiv.textContent = 'تم التسجيل بنجاح! يمكنك الآن تسجيل الدخول باستخدام رقم البطاقة الوطنية وكلمة المرور.';
     messageDiv.className = 'message success';
 
     // Reset form
@@ -205,12 +205,12 @@ function loginUser(event) {
     let isValid = true;
 
     if (!validateNationalId(nationalId)) {
-        document.getElementById('loginNationalIdError').textContent = 'National ID must be exactly 14 digits';
+        document.getElementById('loginNationalIdError').textContent = 'يجب أن يكون رقم البطاقة الوطنية 14 رقماً بالضبط';
         isValid = false;
     }
 
     if (!password) {
-        document.getElementById('loginPasswordError').textContent = 'Password is required';
+        document.getElementById('loginPasswordError').textContent = 'كلمة المرور مطلوبة';
         isValid = false;
     }
 
@@ -224,7 +224,7 @@ function loginUser(event) {
 
     if (!user) {
         const messageDiv = document.getElementById('loginMessage');
-        messageDiv.textContent = 'Invalid National ID or password';
+        messageDiv.textContent = 'رقم البطاقة الوطنية أو كلمة المرور غير صحيحة';
         messageDiv.className = 'message error';
         return;
     }
@@ -234,7 +234,7 @@ function loginUser(event) {
 
     // Show success message
     const messageDiv = document.getElementById('loginMessage');
-    messageDiv.textContent = `Welcome back, ${user.fullName}! Redirecting to your requests...`;
+    messageDiv.textContent = `مرحباً بعودتك، ${user.fullName}! جارٍ التوجيه إلى طلباتك...`;
     messageDiv.className = 'message success';
 
     // Redirect to requests page
@@ -296,12 +296,12 @@ function submitRequest(event) {
     let isValid = true;
 
     if (!requestType) {
-        document.getElementById('requestTypeError').textContent = 'Please select a request type';
+        document.getElementById('requestTypeError').textContent = 'يرجى اختيار نوع الطلب';
         isValid = false;
     }
 
     if (!fileUpload) {
-        document.getElementById('fileError').textContent = 'Please upload a file';
+        document.getElementById('fileError').textContent = 'يرجى رفع ملف';
         isValid = false;
     }
 
@@ -312,7 +312,7 @@ function submitRequest(event) {
     // Get current user ID
     const currentUserId = localStorage.getItem('currentUserId');
     if (!currentUserId) {
-        alert('You must be logged in to submit a request');
+        alert('يجب تسجيل الدخول لتقديم طلب');
         return;
     }
 
@@ -324,13 +324,13 @@ function submitRequest(event) {
     const newRequest = {
         id: generateId(),
         userId: currentUserId,
-        userName: currentUser?.fullName || 'Unknown',
+        userName: currentUser?.fullName || 'غير معروف',
         type: requestType,
-        message: message || 'No additional notes',
+        message: message || 'لا توجد ملاحظات إضافية',
         filename: fileUpload.name,
-        status: 'Under Review',
+        status: 'قيد المراجعة',
         createdAt: new Date().toISOString(),
-        createdAtDisplay: new Date().toLocaleDateString()
+        createdAtDisplay: new Date().toLocaleDateString('ar-EG')
     };
 
     // Save to localStorage
@@ -340,7 +340,7 @@ function submitRequest(event) {
 
     // Show success message
     const messageDiv = document.getElementById('submitMessage');
-    messageDiv.textContent = 'Your request has been submitted successfully! Reference ID: ' + newRequest.id.substring(0, 8);
+    messageDiv.textContent = 'تم تقديم طلبك بنجاح! رقم المرجع: ' + newRequest.id.substring(0, 8);
     messageDiv.className = 'message success';
 
     // Reset form
@@ -368,7 +368,7 @@ function loadUserRequests() {
     }
 
     if (userRequests.length === 0) {
-        container.innerHTML = '<p class="no-requests">No requests submitted yet. Submit your first request above!</p>';
+        container.innerHTML = '<p class="no-requests">لم يتم تقديم أي طلبات بعد. قدم طلبك الأول أعلاه!</p>';
         return;
     }
 
@@ -379,15 +379,15 @@ function loadUserRequests() {
         <div class="request-card">
             <h4>${request.type}</h4>
             <div class="request-info">
-                <p><strong>Status:</strong> <span class="status-badge status-under-review">${request.status}</span></p>
-                <p><strong>Date:</strong> ${request.createdAtDisplay || new Date(request.createdAt).toLocaleDateString()}</p>
-                <p><strong>File:</strong> ${request.filename}</p>
-                <p><strong>Notes:</strong> ${request.message}</p>
-                <p><strong>Reference ID:</strong> ${request.id.substring(0, 8)}</p>
+                <p><strong>الحالة:</strong> <span class="status-badge status-under-review">${request.status}</span></p>
+                <p><strong>التاريخ:</strong> ${request.createdAtDisplay || new Date(request.createdAt).toLocaleDateString('ar-EG')}</p>
+                <p><strong>الملف:</strong> ${request.filename}</p>
+                <p><strong>الملاحظات:</strong> ${request.message}</p>
+                <p><strong>رقم المرجع:</strong> ${request.id.substring(0, 8)}</p>
             </div>
             <div class="request-actions">
-                <button class="btn btn-primary btn-small" onclick="viewRequestDetails('${request.id}')">View Details</button>
-                <button class="btn btn-danger btn-small" onclick="deleteRequest('${request.id}')">Delete</button>
+                <button class="btn btn-primary btn-small" onclick="viewRequestDetails('${request.id}')">عرض التفاصيل</button>
+                <button class="btn btn-danger btn-small" onclick="deleteRequest('${request.id}')">حذف</button>
             </div>
         </div>
     `).join('');
@@ -397,7 +397,7 @@ function loadUserRequests() {
  * Delete request
  */
 function deleteRequest(requestId) {
-    if (!confirm('Are you sure you want to delete this request?')) {
+    if (!confirm('هل أنت متأكد من حذف هذا الطلب؟')) {
         return;
     }
 
@@ -406,14 +406,14 @@ function deleteRequest(requestId) {
     localStorage.setItem('requests', JSON.stringify(requests));
 
     loadUserRequests();
-    alert('Request deleted successfully');
+    alert('تم حذف الطلب بنجاح');
 }
 
 /**
  * View request details (placeholder for future expansion)
  */
 function viewRequestDetails(requestId) {
-    alert('Request Reference: ' + requestId.substring(0, 8) + '\n\nIn a full application, this would show detailed information about your request and any updates from the recruitment team.');
+    alert('رقم المرجع: ' + requestId.substring(0, 8) + '\n\nفي التطبيق الكامل، سيتم عرض معلومات مفصلة عن طلبك وأي تحديثات من فريق التجنيد.');
 }
 
 /**

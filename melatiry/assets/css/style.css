@@ -55,6 +55,12 @@ body {
     background-color: var(--white);
 }
 
+/* RTL Support */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
 /* =====================================================
    Typography
    ===================================================== */
@@ -222,6 +228,11 @@ p {
     border-radius: var(--radius);
     border-left: 4px solid var(--accent-gold);
     transition: var(--transition);
+}
+
+[dir="rtl"] .requirement-card {
+    border-left: none;
+    border-right: 4px solid var(--accent-gold);
 }
 
 .requirement-card:hover {
@@ -437,10 +448,20 @@ small {
     border-left: 4px solid var(--success);
 }
 
+[dir="rtl"] .message.success {
+    border-left: none;
+    border-right: 4px solid var(--success);
+}
+
 .message.error {
     background-color: #ffcdd2;
     color: #c62828;
     border-left: 4px solid var(--error);
+}
+
+[dir="rtl"] .message.error {
+    border-left: none;
+    border-right: 4px solid var(--error);
 }
 
 /* =====================================================
@@ -563,6 +584,11 @@ small {
     border-radius: var(--radius);
     margin-bottom: var(--spacing-xl);
     border-left: 4px solid var(--accent-gold);
+}
+
+[dir="rtl"] .submit-request-section {
+    border-left: none;
+    border-right: 4px solid var(--accent-gold);
 }
 
 .submit-request-section h3 {

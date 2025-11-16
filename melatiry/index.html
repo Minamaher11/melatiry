@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Military Recruitment System</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🇪🇬 Military Recruitment</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="auth.html">Register / Login</a></li>
+                <li><a href="requests.html" id="requestsLink" style="display:none;">My Requests</a></li>
+                <li><a href="#" id="logoutBtn" style="display:none;" onclick="logoutUser(event)">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Serve Your Nation</h2>
+            <p>Join the Egyptian Military and be part of a proud tradition of service, honor, and dedication to your country.</p>
+            <a href="auth.html" class="cta-button">Start Your Application</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Requirements Section -->
+        <section class="section">
+            <h3>Requirements for Military Service</h3>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <h4>Citizenship</h4>
+                    <p>Must be an Egyptian citizen with valid national identification.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Age</h4>
+                    <p>Applicants must be between 18 and 35 years of age.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Health</h4>
+                    <p>Must be in good physical and mental health as verified by medical examination.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Education</h4>
+                    <p>Minimum high school diploma or equivalent qualification required.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Background</h4>
+                    <p>Must have a clean criminal record and pass security clearance.</p>
+                </div>
+                <div class="requirement-card">
+                    <h4>Commitment</h4>
+                    <p>Ready to commit to military service and uphold the nation's values.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Required Documents Section -->
+        <section class="section">
+            <h3>Required Documents</h3>
+            <div class="documents">
+                <div class="doc-item">
+                    <span class="doc-icon">📄</span>
+                    <div>
+                        <h4>National ID / Passport</h4>
+                        <p>Valid Egyptian National ID or Passport</p>
+                    </div>
+                </div>
+                <div class="doc-item">
+                    <span class="doc-icon">🎓</span>
+                    <div>
+                        <h4>Educational Certificate</h4>
+                        <p>High school diploma or equivalent qualification</p>
+                    </div>
+                </div>
+                <div class="doc-item">
+                    <span class="doc-icon">⚕️</span>
+                    <div>
+                        <h4>Medical Certificate</h4>
+                        <p>Recent medical examination report</p>
+                    </div>
+                </div>
+                <div class="doc-item">
+                    <span class="doc-icon">📋</span>
+                    <div>
+                        <h4>Security Clearance</h4>
+                        <p>Background check documentation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Notes Section -->
+        <section class="section">
+            <h3>General Notes</h3>
+            <div class="notes">
+                <div class="note-box">
+                    <h4>Processing Time</h4>
+                    <p>Applications are typically reviewed within 30 days. You will receive updates on your email and phone number provided during registration.</p>
+                </div>
+                <div class="note-box">
+                    <h4>Confidentiality</h4>
+                    <p>All personal information provided is confidential and will only be used for recruitment purposes in accordance with Egyptian military regulations.</p>
+                </div>
+                <div class="note-box">
+                    <h4>Equal Opportunity</h4>
+                    <p>The Egyptian Military is an equal opportunity employer. We evaluate all applications fairly and without discrimination.</p>
+                </div>
+                <div class="note-box">
+                    <h4>Contact Support</h4>
+                    <p>For questions about the application process, please contact our recruitment support team at recruitment@military.gov.eg</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>Contact Us</h5>
+                <p>Email: recruitment@military.gov.eg</p>
+                <p>Phone: +20 (0) 2 XXXX XXXX</p>
+            </div>
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="auth.html">Register</a></li>
+                    <li><a href="requests.html">My Requests</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Follow Us</h5>
+                <p>Social Media: @EgyptianMilitary</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Egyptian Military Recruitment System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Check if user is logged in and update navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavigation();
+        });
+    </script>
+</body>
+</html>

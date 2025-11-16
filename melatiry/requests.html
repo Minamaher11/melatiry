@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Requests - Egyptian Military Recruitment</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🇪🇬 Military Recruitment</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="auth.html">Register / Login</a></li>
+                <li><a href="requests.html" class="active">My Requests</a></li>
+                <li><a href="#" onclick="logoutUser(event)">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container requests-container">
+        <h2>My Recruitment Requests</h2>
+
+        <!-- Submit New Request Section -->
+        <section class="submit-request-section">
+            <h3>Submit New Request</h3>
+            <form id="requestForm" onsubmit="submitRequest(event)">
+                <div class="form-group">
+                    <label for="requestType">Request Type *</label>
+                    <select id="requestType" name="requestType" required>
+                        <option value="">-- Select Request Type --</option>
+                        <option value="Officer Application">Officer Application</option>
+                        <option value="Enlisted Service">Enlisted Service</option>
+                        <option value="Technical Role">Technical Role</option>
+                        <option value="Medical Unit">Medical Unit</option>
+                        <option value="Administrative">Administrative</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error" id="requestTypeError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message / Notes</label>
+                    <textarea id="message" name="message" placeholder="Any additional information or questions..." rows="4"></textarea>
+                    <span class="error" id="messageError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="fileUpload">Attach File (simulated) *</label>
+                    <input type="file" id="fileUpload" name="fileUpload" required>
+                    <small>Note: File upload is simulated for this demo</small>
+                    <span class="error" id="fileError"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+                <div class="message" id="submitMessage"></div>
+            </form>
+        </section>
+
+        <!-- User Requests Display Section -->
+        <section class="requests-display-section">
+            <h3>Your Requests</h3>
+            <div id="requestsContainer" class="requests-container-inner">
+                <p class="no-requests">No requests submitted yet. Submit your first request above!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>Contact Us</h5>
+                <p>Email: recruitment@military.gov.eg</p>
+                <p>Phone: +20 (0) 2 XXXX XXXX</p>
+            </div>
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="auth.html">Register</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Egyptian Military Recruitment System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            updateNavigation();
+            loadUserRequests();
+        });
+    </script>
+</body>
+</html>

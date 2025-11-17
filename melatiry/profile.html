@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البروفايل - التجنيد العسكري المصري</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🇪🇬 التجنيد العسكري</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="auth.html">التسجيل / تسجيل الدخول</a></li>
+                <li><a href="requests.html" id="requestsLink" style="display:none;">طلباتي</a></li>
+                <li><a href="profile.html" id="profileLink" style="display:none;" class="active">البروفايل</a></li>
+                <li><a href="#" id="logoutBtn" style="display:none;" onclick="logoutUser(event)">تسجيل الخروج</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container profile-container">
+        <h2>البروفايل الشخصي</h2>
+
+        <section class="profile-card">
+            <div class="profile-header">
+                <h3>البيانات الشخصية</h3>
+                <span class="status-chip" id="profileGenderChip">-</span>
+            </div>
+            
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <p class="profile-label">الاسم الكامل</p>
+                    <p class="profile-value" id="profileName">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">رقم البطاقة الوطنية</p>
+                    <p class="profile-value" id="profileNationalId">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">الجنس</p>
+                    <p class="profile-value" id="profileGender">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">محافظة الميلاد</p>
+                    <p class="profile-value" id="profileGovernorate">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">تاريخ الميلاد</p>
+                    <p class="profile-value" id="profileDob">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">العنوان</p>
+                    <p class="profile-value" id="profileAddress">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">رقم الهاتف</p>
+                    <p class="profile-value" id="profilePhone">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">البريد الإلكتروني</p>
+                    <p class="profile-value" id="profileEmail">-</p>
+                </div>
+                
+                <div class="profile-item">
+                    <p class="profile-label">تاريخ التسجيل</p>
+                    <p class="profile-value" id="profileCreatedAt">-</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="profile-actions">
+            <a href="requests.html" class="btn btn-primary">عرض طلباتي</a>
+            <button class="btn btn-danger" onclick="logoutUser(event)">تسجيل الخروج</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>اتصل بنا</h5>
+                <p>البريد الإلكتروني: recruitment@military.gov.eg</p>
+                <p>الهاتف: +20 (0) 2 XXXX XXXX</p>
+            </div>
+            <div class="footer-section">
+                <h5>روابط سريعة</h5>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="auth.html">التسجيل</a></li>
+                    <li><a href="requests.html">طلباتي</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 نظام التجنيد العسكري المصري. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+            updateNavigation();
+            loadProfile();
+        });
+    </script>
+</body>
+</html>
+

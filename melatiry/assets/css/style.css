@@ -416,6 +416,11 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
 }
 
+input[readonly] {
+    background-color: #f3f3f3;
+    cursor: not-allowed;
+}
+
 textarea {
     resize: vertical;
 }
@@ -494,6 +499,39 @@ small {
 .btn-danger {
     background-color: var(--error);
     color: var(--white);
+}
+
+.derived-info-card {
+    background: #fdf8e3;
+    border: 1px solid #f0dd99;
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.derived-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.derived-info-card .label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: var(--spacing-xs);
+}
+
+.derived-info-card .value {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0;
+}
+
+.derived-note {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
 }
 
 .btn-danger:hover {
@@ -576,6 +614,54 @@ small {
 
 .requests-container {
     min-height: calc(100vh - 300px);
+}
+
+.user-summary-card {
+    background: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.user-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.user-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.user-summary-card .label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.user-summary-card .value {
+    font-size: 1rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.status-chip {
+    background: #e3f2fd;
+    color: var(--primary-blue);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 .submit-request-section {
@@ -683,6 +769,76 @@ small {
 }
 
 /* =====================================================
+   Profile Page
+   ===================================================== */
+
+.profile-container {
+    min-height: calc(100vh - 300px);
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.profile-card {
+    background: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius);
+    padding: var(--spacing-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--primary-blue);
+}
+
+.profile-header h3 {
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.profile-item {
+    padding: var(--spacing-md);
+    background: var(--light-gray);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent-gold);
+}
+
+[dir="rtl"] .profile-item {
+    border-left: none;
+    border-right: 3px solid var(--accent-gold);
+}
+
+.profile-label {
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.profile-value {
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.profile-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* =====================================================
    Responsive Design
    ===================================================== */
 
@@ -737,6 +893,10 @@ small {
     /* Requests */
     .requests-container-inner {
         grid-template-columns: 1fr;
+    }
+
+    .user-summary-card {
+        padding: var(--spacing-lg);
     }
 
     /* Forms */
